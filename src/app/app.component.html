@@ -1,3 +1,51 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- Sidebar -->
+  <ion-menu contentId="main-content" type="overlay">
+    <ion-content>
+      <ion-header class="sidebar-header">
+        <ion-toolbar color="primary">
+          <ion-title>Association Dashboard</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/dashboard" routerLinkActive="active">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            <ion-label>Accueil</ion-label>
+          </ion-item>
+          <ion-item routerLink="/children" routerLinkActive="active">
+            <ion-icon name="people-outline" slot="start"></ion-icon>
+            <ion-label>Gestion des Enfants</ion-label>
+          </ion-item>
+          <ion-item routerLink="/payments" routerLinkActive="active">
+            <ion-icon name="cash-outline" slot="start"></ion-icon>
+            <ion-label>Paiements</ion-label>
+          </ion-item>
+          <ion-item routerLink="/expenses" routerLinkActive="active">
+            <ion-icon name="wallet-outline" slot="start"></ion-icon>
+            <ion-label>Dépenses</ion-label>
+          </ion-item>
+          <ion-item routerLink="/reports" routerLinkActive="active">
+            <ion-icon name="document-text-outline" slot="start"></ion-icon>
+            <ion-label>Rapports</ion-label>
+          </ion-item>
+          <ion-item routerLink="/transfers" routerLinkActive="active">
+            <ion-icon name="swap-horizontal-outline" slot="start"></ion-icon>
+            <ion-label>Transferts de Fonds</ion-label>
+          </ion-item>
+          <ion-item routerLink="/statistics" routerLinkActive="active">
+            <ion-icon name="bar-chart-outline" slot="start"></ion-icon>
+            <ion-label>Statistiques</ion-label>
+          </ion-item>
+          <ion-item routerLink="/sponsorships" routerLinkActive="active">
+            <ion-icon name="heart-outline" slot="start"></ion-icon>
+            <ion-label>Parrainages</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main Content -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

@@ -1,0 +1,45 @@
+ion-app {
+  --ion-primary-color: #4CAF50; /* Vert vif */
+  --ion-secondary-color: #2196F3; /* Bleu confiance */
+  --ion-accent-color: #FFC107; /* Jaune highlight */
+  --ion-background-color: #F4F7FA;
+
+  .sidebar-header {
+    ion-toolbar {
+      --background: linear-gradient(135deg, var(--ion-primary-color), var(--ion-secondary-color));
+      ion-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+
+  ion-item {
+    --border-radius: 8px;
+    --padding-start: 10px;
+    --inner-padding-end: 10px;
+    margin: 5px 0;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s ease;
+
+    &.active {
+      --background: rgba(255, 255, 255, 0.2);
+      transform: translateX(10px);
+    }
+
+    ion-icon {
+      color: white;
+    }
+
+    ion-label {
+      color: white;
+      font-size: 1.1rem;
+    }
+  }
+
+  ion-content {
+    --background: linear-gradient(135deg, var(--ion-primary-color), var(--ion-secondary-color));
+  }
+}

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/reports"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Générer un Rapport</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Nouveau Rapport</h1>
+  <ion-card class="card">
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Enfant</ion-label>
+          <ion-select placeholder="Sélectionner un enfant">
+            <ion-select-option value="child1">Enfant 1</ion-select-option>
+            <ion-select-option value="child2">Enfant 2</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Type de Rapport</ion-label>
+          <ion-select placeholder="Sélectionner">
+            <ion-select-option value="scolaire">Scolaire</ion-select-option>
+            <ion-select-option value="financier">Financier</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Période</ion-label>
+          <ion-select placeholder="Sélectionner">
+            <ion-select-option value="mensuel">Mensuel</ion-select-option>
+            <ion-select-option value="trimestriel">Trimestriel</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Commentaires</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Joindre Fichiers</ion-label>
+          <input type="file" multiple>
+        </ion-item>
+        <ion-button expand="block" color="primary">Générer</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

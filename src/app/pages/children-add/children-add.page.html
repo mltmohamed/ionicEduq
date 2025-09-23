@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/children"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajouter un Enfant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Ajouter un Nouvel Enfant</h1>
+  <ion-card class="card">
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Nom Complet</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Niveau Scolaire</ion-label>
+          <ion-select placeholder="Sélectionner">
+            <ion-select-option value="primaire">Primaire</ion-select-option>
+            <ion-select-option value="collège">Collège</ion-select-option>
+            <ion-select-option value="lycée">Lycée</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Besoins Spécifiques</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Photo</ion-label>
+          <input type="file" accept="image/*">
+        </ion-item>
+        <ion-button expand="block" color="primary">Ajouter</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

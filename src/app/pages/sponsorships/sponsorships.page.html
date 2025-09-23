@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Parrainages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Gestion des Parrainages</h1>
+
+  <!-- Sponsorships List -->
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let sponsorship of sponsorships" class="animate__animated animate__fadeIn">
+          <ion-label>
+            <h2>{{ sponsorship.sponsorName }} - {{ sponsorship.childName }}</h2>
+            <p>Date de Demande: {{ sponsorship.date }}</p>
+            <p>Statut: {{ sponsorship.status }}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="validateSponsorship(sponsorship.id)">Valider</ion-button>
+            <ion-button color="danger" (click)="rejectSponsorship(sponsorship.id)">Rejeter</ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

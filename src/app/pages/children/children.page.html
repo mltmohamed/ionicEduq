@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestion des Enfants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Gestion des Enfants Parrainés</h1>
+
+  <!-- Add Child Button -->
+  <ion-button color="primary" routerLink="/children/add">Ajouter un Enfant</ion-button>
+
+  <!-- Children List -->
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let child of children" class="animate__animated animate__fadeIn">
+          <ion-avatar slot="start">
+            <img src="assets/images/child-placeholder.jpg" alt="Child Photo">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ child.name }}</h2>
+            <p>Niveau: {{ child.grade }}</p>
+            <p>Statut: {{ child.status }}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="editChild(child.id)">Modifier</ion-button>
+            <ion-button color="warning" (click)="toggleStatus(child.id, child.status)">
+              {{ child.status === 'active' ? 'Désactiver' : 'Activer' }}
+            </ion-button>
+            <ion-button color="secondary" (click)="markAttendance(child.id)">Présence</ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Attendance Modal (Placeholder) -->
+  <ion-modal #attendanceModal>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Marquer la Présence</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="attendanceModal.dismiss()">Fermer</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form>
+        <ion-item>
+          <ion-label position="floating">Date</ion-label>
+          <ion-input type="date"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Statut</ion-label>
+          <ion-select placeholder="Sélectionner">
+            <ion-select-option value="present">Présent</ion-select-option>
+            <ion-select-option value="absent">Absent</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" color="primary">Enregistrer</ion-button>
+      </form>
+    </ion-content>
+  </ion-modal>
+
+  <!-- Pedagogical Data Modal (Placeholder) -->
+  <ion-modal #pedagogicalModal>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Données Pédagogiques</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="pedagogicalModal.dismiss()">Fermer</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form>
+        <ion-item>
+          <ion-label position="floating">Matière</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Note</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Commentaires</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+        <ion-button expand="block" color="primary">Enregistrer</ion-button>
+      </form>
+    </ion-content>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tableau de Bord</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Bienvenue, [Nom de l'utilisateur]</h1>
+
+  <!-- Quick Stats Cards -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-card class="card animate__animated animate__zoomIn">
+          <ion-card-header>
+            <ion-card-title>Enfants Parrainés</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>150</h2>
+            <p>Enfants actuellement pris en charge</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="card animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
+          <ion-card-header>
+            <ion-card-title>Fonds Reçus</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>2,500,000 FCFA</h2>
+            <p>Total des contributions ce mois-ci</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="card animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+          <ion-card-header>
+            <ion-card-title>Rapports Générés</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>45</h2>
+            <p>Rapports envoyés aux parrains</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Quick Actions -->
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>Actions Rapides</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" color="primary" routerLink="/children/add">Ajouter un Enfant</ion-button>
+      <ion-button expand="block" color="secondary" routerLink="/payments/add">Enregistrer un Paiement</ion-button>
+      <ion-button expand="block" color="tertiary" routerLink="/reports/generate">Générer un Rapport</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

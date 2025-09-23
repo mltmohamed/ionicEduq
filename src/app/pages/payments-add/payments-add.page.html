@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/payments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Enregistrer un Paiement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Nouveau Paiement</h1>
+  <ion-card class="card">
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Enfant</ion-label>
+          <ion-select placeholder="Sélectionner un enfant">
+            <ion-select-option value="child1">Enfant 1</ion-select-option>
+            <ion-select-option value="child2">Enfant 2</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant (FCFA)</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Type</ion-label>
+          <ion-select placeholder="Sélectionner">
+            <ion-select-option value="scolarite">Scolarité</ion-select-option>
+            <ion-select-option value="cantine">Cantine</ion-select-option>
+            <ion-select-option value="uniforme">Uniforme</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Justificatif</ion-label>
+          <input type="file" accept="image/*,application/pdf">
+        </ion-item>
+        <ion-button expand="block" color="primary">Enregistrer</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
