@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { StatisticsPage } from './pages/statistics/statistics.page';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -8,5 +9,7 @@ export const routes: Routes = [
   { path: 'payments', loadComponent: () => import('./pages/payments/payments.page').then(m => m.PaymentsPage) },
   { path: 'payments/add', loadComponent: () => import('./pages/payments-add/payments-add.page').then(m => m.PaymentsAddPage) },
   { path: 'expenses', loadComponent: () => import('./pages/expenses/expenses.page').then(m => m.ExpensesPage) },
-  { path: 'expenses/add', loadComponent: () => import('./pages/expenses-add/expenses-add.page').then(m => m.ExpensesAddPage) }
+  { path: 'expenses/add', loadComponent: () => import('./pages/expenses-add/expenses-add.page').then(m => m.ExpensesAddPage) },
+  { path: 'settings', loadComponent: () => import('./pages/settings/settings.page').then(m => m.SettingsPage) },
+  { path: 'statistics', component:StatisticsPage }
 ];

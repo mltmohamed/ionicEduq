@@ -1,45 +1,88 @@
-ion-app {
-  --ion-primary-color: #4CAF50; /* Vert vif */
-  --ion-secondary-color: #2196F3; /* Bleu confiance */
-  --ion-accent-color: #FFC107; /* Jaune highlight */
-  --ion-background-color: #F4F7FA;
+.page-title {
+  font-size: 2rem;
+  color: var(--ion-primary-color, #0288D1); /* Bleu plus clair pour visibilité */
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
 
-  .sidebar-header {
-    ion-toolbar {
-      --background: linear-gradient(135deg, var(--ion-primary-color), var(--ion-secondary-color));
-      ion-title {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        color: white;
-        text-align: center;
-      }
-    }
+ion-card {
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #F5F9FF; /* Fond blanc cassé pour fraîcheur */
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
   }
 
-  ion-item {
-    --border-radius: 8px;
-    --padding-start: 10px;
-    --inner-padding-end: 10px;
-    margin: 5px 0;
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s ease;
-
-    &.active {
-      --background: rgba(255, 255, 255, 0.2);
-      transform: translateX(10px);
+  ion-card-header {
+    ion-card-title {
+      color: var(--ion-primary-color, #0288D1);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
     }
 
     ion-icon {
-      color: white;
-    }
-
-    ion-label {
-      color: white;
-      font-size: 1.1rem;
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 1.5rem;
+      margin-right: 10px;
     }
   }
 
-  ion-content {
-    --background: linear-gradient(135deg, var(--ion-primary-color), var(--ion-secondary-color));
+  ion-card-content {
+    h2 {
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 2.2rem; /* Plus grand pour impact */
+      margin: 0;
+      font-weight: bold;
+    }
+    p {
+      color: #333; /* Gris foncé pour contraste */
+      font-size: 1rem;
+      margin-top: 5px;
+    }
   }
+}
+
+ion-button {
+  --border-radius: 10px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px; /* Espacement entre boutons */
+
+  &:hover {
+    transform: scale(1.05);
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &[color="primary"] {
+    --background: #0288D1; /* Bleu clair */
+    --color: white;
+  }
+
+  &[color="secondary"] {
+    --background: #2ECC71; /* Vert vif */
+    --color: white;
+  }
+
+  &[color="tertiary"] {
+    --background: #FFC107; /* Jaune ambre */
+    --color: #333;
+  }
+}
+
+.chart-canvas {
+  max-height: 300px; /* Taille fixe pour les graphiques */
+  width: 100%;
+  border-radius: 8px;
+}
+
+.animate__animated {
+  --animate-duration: 0.6s; /* Durée légèrement plus longue */
 }

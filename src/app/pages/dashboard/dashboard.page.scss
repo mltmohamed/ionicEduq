@@ -1,0 +1,101 @@
+.page-title {
+  font-size: 2rem;
+  color: var(--ion-primary-color, #0288D1); /* Bleu clair pour visibilité */
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+ion-content {
+  --padding-bottom: 20px; /* Ajout de padding en bas pour éviter le débordement */
+  --overflow: auto; /* Activer le défilement si contenu dépasse */
+}
+
+ion-card {
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Ombre prononcée */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #F5F9FF; /* Fond blanc cassé pour cohérence */
+  margin-bottom: 20px; /* Espacement entre cartes */
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  ion-card-header {
+    ion-card-title {
+      color: var(--ion-primary-color, #0288D1);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    ion-icon {
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 1.5rem;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover ion-icon {
+    transform: scale(1.2); /* Zoom des icônes au survol */
+  }
+
+  ion-card-content {
+    h2 {
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 2.2rem; /* Plus grand pour impact */
+      margin: 0;
+      font-weight: bold;
+    }
+    p {
+      color: #333; /* Gris foncé pour contraste */
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+  }
+}
+
+ion-button {
+  --border-radius: 10px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 15px; /* Espacement entre boutons */
+  height: 48px; /* Hauteur fixe pour consistance */
+
+  &:hover {
+    transform: scale(1.05);
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &[color="primary"] {
+    --background: #0288D1; /* Bleu clair */
+    --color: #000000; /* Texte blanc pour contraste */
+  }
+
+  &[color="secondary"] {
+    --background: #2ECC71; /* Vert vif */
+    --color: #000000; /* Texte blanc pour contraste */
+  }
+
+  &[color="tertiary"] {
+    --background: #FFC107; /* Jaune ambre */
+    --color: #000000; /* Texte noir pour meilleur contraste */
+  }
+}
+
+.chart-canvas {
+  max-height: 300px !important; /* Forcer la hauteur */
+  width: 100% !important;
+  border-radius: 8px;
+  display: block; /* Assurer que le canvas est visible */
+}
+
+.animate__animated {
+  --animate-duration: 0.6s; /* Durée légèrement plus longue */
+}

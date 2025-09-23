@@ -15,7 +15,7 @@ import {
   IonLabel 
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, peopleOutline, cashOutline, walletOutline, documentTextOutline, swapHorizontalOutline, barChartOutline, heartOutline } from 'ionicons/icons';
+import { homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline, logOutOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -40,6 +40,12 @@ import { homeOutline, peopleOutline, cashOutline, walletOutline, documentTextOut
 })
 export class AppComponent {
   constructor() {
-    addIcons({ homeOutline, peopleOutline, cashOutline, walletOutline, documentTextOutline, swapHorizontalOutline, barChartOutline, heartOutline });
+    addIcons({ homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline, logOutOutline });
+  }
+
+  logout() {
+    console.log('Logout clicked');
+    // TODO: Implement logout logic
+    // Example: this.authService.logout();
   }
 }

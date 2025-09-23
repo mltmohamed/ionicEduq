@@ -1,22 +1,46 @@
-.chart-canvas {
-  max-height: 300px;
-  width: 100%;
+.page-title {
+  font-size: 2rem;
+  color: var(--ion-primary-color, #0288D1); /* Bleu clair pour visibilité */
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 ion-card {
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #F5F9FF; /* Fond blanc cassé pour cohérence */
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  ion-card-header {
+    ion-card-title {
+      color: var(--ion-primary-color, #0288D1); /* Bleu clair */
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    ion-icon {
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 1.5rem;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover ion-icon {
+    transform: scale(1.2); /* Zoom des icônes au survol */
   }
 }
 
-.page-title {
-  font-size: 2rem;
-  color: var(--ion-primary-color, #4CAF50);
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+.chart-canvas {
+  max-height: 300px !important; /* Forcer la hauteur */
+  width: 100% !important;
+  border-radius: 8px;
+  display: block; /* Assurer que le canvas est visible */
 }

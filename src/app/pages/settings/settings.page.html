@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Paramètres</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title animate__animated animate__fadeInUp">Paramètres de l'Association</h1>
+
+  <!-- Section Coordonnées -->
+  <ion-card class="card animate__animated animate__zoomIn">
+    <ion-card-header>
+      <ion-card-title>Coordonnées de l'Association</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="associationForm">
+        <ion-item>
+          <ion-label position="floating">Nom de l'Association</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Adresse</ion-label>
+          <ion-input formControlName="address" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email de Contact</ion-label>
+          <ion-input formControlName="contact" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input formControlName="phone" type="tel"></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="primary" (click)="saveAssociation()" [disabled]="!associationForm.valid">
+          Sauvegarder les Coordonnées
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Section Mot de Passe -->
+  <ion-card class="card animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
+    <ion-card-header>
+      <ion-card-title>Changer le Mot de Passe</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="passwordForm">
+        <ion-item>
+          <ion-label position="floating">Mot de Passe Actuel</ion-label>
+          <ion-input formControlName="currentPassword" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nouveau Mot de Passe (min. 8 caractères)</ion-label>
+          <ion-input formControlName="newPassword" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Confirmer le Nouveau Mot de Passe</ion-label>
+          <ion-input formControlName="confirmPassword" type="password"></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="secondary" (click)="changePassword()" [disabled]="!passwordForm.valid">
+          Changer le Mot de Passe
+        </ion-button>
+        <ion-text *ngIf="passwordForm.invalid && passwordForm.touched" color="danger" class="error-message">
+          {{ passwordForm.errors?.['mismatch'] ? 'Les mots de passe ne correspondent pas.' : 'Veuillez corriger les erreurs.' }}
+        </ion-text>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

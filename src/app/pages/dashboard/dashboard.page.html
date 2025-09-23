@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h1 class="page-title animate__animated animate__fadeInUp">Bienvenue, [Nom de l'utilisateur]</h1>
+  <h1 class="page-title animate__animated animate__fadeInUp">Bienvenue, {{ userName }}</h1>
 
   <!-- Quick Stats Cards -->
   <ion-grid>
@@ -16,10 +16,11 @@
       <ion-col size="12" size-md="4">
         <ion-card class="card animate__animated animate__zoomIn">
           <ion-card-header>
+            <ion-icon name="people-outline" slot="start"></ion-icon>
             <ion-card-title>Enfants Parrainés</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <h2>150</h2>
+            <h2>{{ statistics.children }}</h2>
             <p>Enfants actuellement pris en charge</p>
           </ion-card-content>
         </ion-card>
@@ -27,10 +28,11 @@
       <ion-col size="12" size-md="4">
         <ion-card class="card animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
           <ion-card-header>
+            <ion-icon name="cash-outline" slot="start"></ion-icon>
             <ion-card-title>Fonds Reçus</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <h2>2,500,000 FCFA</h2>
+            <h2>{{ statistics.totalFunds | number }} FCFA</h2>
             <p>Total des contributions ce mois-ci</p>
           </ion-card-content>
         </ion-card>
@@ -38,26 +40,74 @@
       <ion-col size="12" size-md="4">
         <ion-card class="card animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
           <ion-card-header>
-            <ion-card-title>Rapports Générés</ion-card-title>
+            <ion-icon name="people-outline" slot="start"></ion-icon>
+            <ion-card-title>Nombre Total d'Enfants</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <h2>45</h2>
-            <p>Rapports envoyés aux parrains</p>
+            <h2>{{ statistics.children }}</h2>
+            <p>Total des enfants enregistrés</p>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <!-- Quick Actions -->
-  <ion-card class="card">
+  <!-- Statistics Charts -->
+  <ion-card class="card animate__animated animate__zoomIn">
     <ion-card-header>
+      <ion-icon name="bar-chart-outline" slot="start"></ion-icon>
+      <ion-card-title>Statistiques Mensuelles</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <h3>Enfants Parrainés (par mois)</h3>
+            <canvas
+              baseChart
+              id="dashboard-children-chart"
+              [data]="barChartData"
+              [options]="barChartOptions"
+              [type]="barChartType"
+              class="chart-canvas">
+            </canvas>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <h3>Fonds Reçus (par mois)</h3>
+            <canvas
+              baseChart
+              id="dashboard-funds-chart"
+              [data]="lineChartData"
+              [options]="lineChartOptions"
+              [type]="lineChartType"
+              class="chart-canvas">
+            </canvas>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Quick Actions -->
+  <ion-card class="card animate__animated animate__zoomIn" style="animation-delay: 0.6s;">
+    <ion-card-header>
+      <ion-icon name="flash-outline" slot="start"></ion-icon>
       <ion-card-title>Actions Rapides</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-button expand="block" color="primary" routerLink="/children/add">Ajouter un Enfant</ion-button>
-      <ion-button expand="block" color="secondary" routerLink="/payments/add">Enregistrer un Paiement</ion-button>
-      <ion-button expand="block" color="tertiary" routerLink="/reports/generate">Générer un Rapport</ion-button>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button expand="block" color="primary" routerLink="/children/add" (click)="showToast('Ajout d\'enfant lancé !')">Ajouter un Enfant</ion-button>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button expand="block" color="secondary" routerLink="/payments/add" (click)="showToast('Enregistrement de paiement lancé !')">Enregistrer un Paiement</ion-button>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button expand="block" color="tertiary" routerLink="/reports/generate" (click)="showToast('Génération de rapport lancée !')">Générer un Rapport</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
