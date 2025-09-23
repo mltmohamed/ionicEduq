@@ -1,0 +1,7 @@
+{
+  "name": "association-dashboard",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
