@@ -8,16 +8,25 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h1 class="page-title animate__animated animate__fadeInUp">Gestion des Enfants Enregistrés</h1>
+  <h1 class="page-title animate__animated animate__fadeInUp">
+    Gestion des Enfants Enregistrés
+  </h1>
 
   <!-- Search Bar and Filter -->
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="6">
-        <ion-searchbar placeholder="Rechercher un enfant" (ionInput)="searchChildren($event)" class="animate__animated animate__fadeIn"></ion-searchbar>
+        <ion-searchbar
+          placeholder="Rechercher un enfant"
+          (ionInput)="searchChildren($event)"
+          class="animate__animated animate__fadeIn">
+        </ion-searchbar>
       </ion-col>
       <ion-col size="12" size-md="6">
-        <ion-select placeholder="Filtrer par statut" (ionChange)="filterChildren($event)" class="animate__animated animate__fadeIn">
+        <ion-select
+          placeholder="Filtrer par statut"
+          (ionChange)="filterChildren($event)"
+          class="animate__animated animate__fadeIn">
           <ion-select-option value="all">Tous</ion-select-option>
           <ion-select-option value="sponsored">Parrainés</ion-select-option>
           <ion-select-option value="non-sponsored">Non Parrainés</ion-select-option>
@@ -27,15 +36,28 @@
   </ion-grid>
 
   <!-- Add Child Button -->
-  <ion-button color="primary" routerLink="/children/add" class="animate__animated animate__bounceIn">Ajouter un Enfant</ion-button>
+  <ion-button
+    color="primary"
+    routerLink="/children/add"
+    class="animate__animated animate__bounceIn">
+    Ajouter un Enfant
+  </ion-button>
 
   <!-- Children List -->
   <ion-card class="card animate__animated animate__zoomIn">
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let child of filteredChildren; let i = index" (click)="openChildDetail(child)" lines="full" class="animate__animated animate__fadeIn" [style.animation-delay]="i * 0.1 + 's'">
+        <ion-item
+          *ngFor="let child of filteredChildren; let i = index"
+          (click)="openChildDetail(child)"
+          lines="full"
+          class="animate__animated animate__fadeIn"
+          [style.animation-delay]="i * 0.1 + 's'">
           <ion-avatar slot="start">
-            <img [src]="child.photoUrl" alt="Photo de {{ child.firstName }} {{ child.lastName }}" onerror="this.src='assets/images/child-placeholder.jpg'">
+            <img
+              [src]="child.photoUrl"
+              alt="Photo de {{ child.firstName }} {{ child.lastName }}"
+              onerror="this.src='assets/images/child-placeholder.jpg'">
           </ion-avatar>
           <ion-label>
             <h2>{{ child.firstName }} {{ child.lastName }}</h2>
@@ -44,13 +66,24 @@
             <p>Parrainé: {{ child.sponsored ? 'Oui' : 'Non' }}</p>
           </ion-label>
           <ion-buttons slot="end">
-            <ion-button color="primary" (click)="editChild(child.id); $event.stopPropagation()">Modifier</ion-button>
-            <ion-button color="warning" (click)="toggleStatus(child.id, child.status); $event.stopPropagation()">
+            <ion-button
+              color="primary"
+              (click)="editChild(child.id); $event.stopPropagation()">
+              Modifier
+            </ion-button>
+            <ion-button
+              color="warning"
+              (click)="toggleStatus(child.id, child.status); $event.stopPropagation()">
               {{ child.status === 'active' ? 'Désactiver' : 'Activer' }}
             </ion-button>
-            <ion-button color="secondary" (click)="markAttendance(child.id); $event.stopPropagation()">Présence</ion-button>
+            <ion-button
+              color="secondary"
+              (click)="markAttendance(child.id); $event.stopPropagation()">
+              Présence
+            </ion-button>
           </ion-buttons>
         </ion-item>
+
         <ion-item *ngIf="filteredChildren.length === 0">
           <ion-label>Aucun enfant trouvé</ion-label>
         </ion-item>
@@ -60,126 +93,49 @@
 
   <!-- Child Detail Modal -->
   <ion-modal [isOpen]="isChildDetailOpen" (didDismiss)="onChildDetailDismiss()">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Détails de l'Enfant</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="onChildDetailDismiss()">Fermer</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding animate__animated animate__fadeIn">
-        <ion-card class="detail-card">
-          <ion-card-content>
-            <ion-avatar class="detail-avatar">
-              <img [src]="selectedChild.photoUrl" alt="Photo de {{ selectedChild.firstName }} {{ selectedChild.lastName }}" onerror="this.src='assets/images/child-placeholder.jpg'">
-            </ion-avatar>
-            <h2>{{ selectedChild.firstName }} {{ selectedChild.lastName }}</h2>
-            <ion-list lines="full">
-              <ion-item>
-                <ion-label>Prénom: <strong>{{ selectedChild.firstName }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Nom: <strong>{{ selectedChild.lastName }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Âge: <strong>{{ selectedChild.age }} ans</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Établissement Scolaire: <strong>{{ selectedChild.school }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Niveau Scolaire: <strong>{{ selectedChild.grade }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Email de l'École: <strong>{{ selectedChild.schoolEmail }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Nom du Titulaire: <strong>{{ selectedChild.guardianName }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Numéro du Titulaire: <strong>{{ selectedChild.guardianPhone }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Email du Titulaire: <strong>{{ selectedChild.guardianEmail }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Parrainé: <strong>{{ selectedChild.sponsored ? 'Oui' : 'Non' }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Statut: <strong>{{ selectedChild.status === 'active' ? 'Actif' : 'Inactif' }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Nombre de Présences: <strong>{{ selectedChild.presenceCount }}</strong></ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Nombre d'Absences: <strong>{{ selectedChild.absenceCount }}</strong></ion-label>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label class="story-label">Petite Histoire: <p>{{ selectedChild.story }}</p></ion-label>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-  <!-- Attendance Modal -->
-  <ion-modal #attendanceModal>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Marquer la Présence</ion-title>
+        <ion-title>Détails de l'Enfant</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="attendanceModal.dismiss()">Fermer</ion-button>
+          <ion-button (click)="onChildDetailDismiss()">Fermer</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <form>
-        <ion-item>
-          <ion-label position="floating">Date</ion-label>
-          <ion-input type="date"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Statut</ion-label>
-          <ion-select placeholder="Sélectionner">
-            <ion-select-option value="present">Présent</ion-select-option>
-            <ion-select-option value="absent">Absent</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-button expand="block" color="primary">Enregistrer</ion-button>
-      </form>
-    </ion-content>
-  </ion-modal>
 
-  <!-- Pedagogical Data Modal -->
-  <ion-modal #pedagogicalModal>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Données Pédagogiques</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="pedagogicalModal.dismiss()">Fermer</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <form>
-        <ion-item>
-          <ion-label position="floating">Matière</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Note</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Commentaires</ion-label>
-          <ion-textarea></ion-textarea>
-        </ion-item>
-        <ion-button expand="block" color="primary">Enregistrer</ion-button>
-      </form>
+    <ion-content class="ion-padding animate__animated animate__fadeIn">
+      <ion-card class="detail-card" *ngIf="selectedChild">
+        <ion-card-content>
+          <ion-avatar class="detail-avatar">
+            <img
+              [src]="selectedChild.photoUrl"
+              alt="Photo de {{ selectedChild.firstName }} {{ selectedChild.lastName }}"
+              onerror="this.src='assets/images/child-placeholder.jpg'">
+          </ion-avatar>
+          <h2>{{ selectedChild.firstName }} {{ selectedChild.lastName }}</h2>
+
+          <ion-list lines="full">
+            <ion-item><ion-label>Prénom: <strong>{{ selectedChild.firstName }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Nom: <strong>{{ selectedChild.lastName }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Âge: <strong>{{ selectedChild.age }} ans</strong></ion-label></ion-item>
+            <ion-item><ion-label>Établissement: <strong>{{ selectedChild.school }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Niveau Scolaire: <strong>{{ selectedChild.grade }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Email de l'École: <strong>{{ selectedChild.schoolEmail }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Nom du Titulaire: <strong>{{ selectedChild.guardianName }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Numéro du Titulaire: <strong>{{ selectedChild.guardianPhone }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Email du Titulaire: <strong>{{ selectedChild.guardianEmail }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Parrainé: <strong>{{ selectedChild.sponsored ? 'Oui' : 'Non' }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Statut: <strong>{{ selectedChild.status === 'active' ? 'Actif' : 'Inactif' }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Nombre de Présences: <strong>{{ selectedChild.presenceCount }}</strong></ion-label></ion-item>
+            <ion-item><ion-label>Nombre d'Absences: <strong>{{ selectedChild.absenceCount }}</strong></ion-label></ion-item>
+            <ion-item lines="none">
+              <ion-label class="story-label">
+                Petite Histoire:
+                <p>{{ selectedChild.story }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
     </ion-content>
   </ion-modal>
 </ion-content>
