@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { StatisticsPage } from './pages/statistics/statistics.page';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -11,5 +10,6 @@ export const routes: Routes = [
   { path: 'expenses', loadComponent: () => import('./pages/expenses/expenses.page').then(m => m.ExpensesPage) },
   { path: 'expenses/add', loadComponent: () => import('./pages/expenses-add/expenses-add.page').then(m => m.ExpensesAddPage) },
   { path: 'settings', loadComponent: () => import('./pages/settings/settings.page').then(m => m.SettingsPage) },
-  { path: 'statistics', component:StatisticsPage }
+  { path: 'statistics', loadComponent: () => import('./pages/statistics/statistics.page').then(m => m.StatisticsPage) },
+  { path: '**', redirectTo: 'dashboard' } // Route par défaut pour gérer les erreurs 404
 ];

@@ -1,13 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonTitle, 
+  IonToolbar, 
+  IonButtons, 
+  IonMenuButton,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonIcon
+} from '@ionic/angular/standalone';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartConfiguration, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [IonicModule, CommonModule, NgChartsModule],
+  imports: [
+    CommonModule, 
+    NgChartsModule,
+    IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    IonButtons, 
+    IonMenuButton,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonIcon
+  ],
   templateUrl: './statistics.page.html',
   styleUrls: ['./statistics.page.scss'],
 })

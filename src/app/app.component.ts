@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+// src/app/app.component.ts
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { 
   IonApp, 
   IonRouterOutlet, 
@@ -38,9 +40,32 @@ import { homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline
     RouterModule
   ],
 })
-export class AppComponent {
-  constructor() {
+export class AppComponent implements OnInit {
+  menuItems = [
+    { title: 'Accueil', path: '/dashboard', icon: 'homeOutline' },
+    { title: 'Enfants', path: '/children', icon: 'peopleOutline' },
+    { title: 'Paiements', path: '/payments', icon: 'cashOutline' },
+    { title: 'Dépenses', path: '/expenses', icon: 'walletOutline' },
+    { title: 'Paramètres', path: '/settings', icon: 'settingsOutline' },
+    { title: 'Statistiques', path: '/statistics', icon: 'statsChartOutline' }
+  ];
+
+  constructor(private router: Router) {
     addIcons({ homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline, logOutOutline });
+  }
+
+  ngOnInit() {
+    // Debug navigation
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      console.log('Navigation completed to:', event.url);
+    });
+  }
+
+  navigateTo(path: string) {
+    console.log('Navigating programmatically to:', path);
+    this.router.navigate([path]);
   }
 
   logout() {

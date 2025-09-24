@@ -1,6 +1,6 @@
 <ion-app>
   <!-- Sidebar -->
-  <ion-menu contentId="main-content" type="overlay">
+  <ion-menu contentId="main-content" type="reveal">
     <ion-content>
       <ion-header class="sidebar-header">
         <ion-toolbar>
@@ -8,27 +8,40 @@
         </ion-toolbar>
       </ion-header>
       <ion-list>
-        <ion-menu-toggle>
-          <ion-item routerLink="/dashboard" routerLinkActive="active">
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/dashboard')" lines="none">
             <ion-icon name="home-outline" slot="start"></ion-icon>
             <ion-label>Accueil</ion-label>
           </ion-item>
-          <ion-item routerLink="/children" routerLinkActive="active">
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/children')" lines="none">
             <ion-icon name="people-outline" slot="start"></ion-icon>
             <ion-label>Gestion des Enfants</ion-label>
           </ion-item>
-          <ion-item routerLink="/payments" routerLinkActive="active">
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/payments')" lines="none">
             <ion-icon name="cash-outline" slot="start"></ion-icon>
             <ion-label>Paiements</ion-label>
           </ion-item>
-          <ion-item routerLink="/expenses" routerLinkActive="active">
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/expenses')" lines="none">
             <ion-icon name="wallet-outline" slot="start"></ion-icon>
             <ion-label>Dépenses</ion-label>
           </ion-item>
-          <!-- Option Paramètres avec icône -->
-          <ion-item routerLink="/settings" routerLinkActive="active">
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/settings')" lines="none">
             <ion-icon name="settings-outline" slot="start"></ion-icon>
             <ion-label>Paramètres</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/statistics')" lines="none">
+            <ion-icon name="settings-outline" slot="start"></ion-icon>
+            <ion-label>Statistiques</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <!-- Bouton de déconnexion avec icône, en bas -->

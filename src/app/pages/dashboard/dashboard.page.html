@@ -4,8 +4,37 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Tableau de Bord</ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="notifications-trigger">
+        <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+        <ion-badge color="danger" *ngIf="unreadMessages > 0">{{ unreadMessages }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<ion-popover trigger="notifications-trigger" triggerAction="click" dismissOnSelect="true">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Notifications</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let message of messages" (click)="markAsRead(message)">
+          <ion-label>
+            <h3>{{ message.title }}</h3>
+            <p>{{ message.content }}</p>
+            <p class="timestamp">{{ message.timestamp | date:'short' }}</p>
+          </ion-label>
+          <ion-icon name="mail-unread-outline" slot="end" *ngIf="!message.read"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="messages.length === 0">
+          <ion-label>Aucun message</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-popover>
 
 <ion-content class="ion-padding">
   <h1 class="page-title animate__animated animate__fadeInUp">Bienvenue, {{ userName }}</h1>
@@ -45,7 +74,7 @@
           </ion-card-header>
           <ion-card-content>
             <h2>{{ statistics.children }}</h2>
-            <p>Total des enfants enregistrés</p>
+            <p>Total des enfants parrainés</p>
           </ion-card-content>
         </ion-card>
       </ion-col>

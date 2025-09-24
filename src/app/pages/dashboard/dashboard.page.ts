@@ -18,12 +18,18 @@ import {
   IonCardContent, 
   IonButton,
   IonIcon,
+  IonBadge,
+  IonPopover,
+  IonList,
+  IonListHeader,
+  IonLabel,
+  IonItem,
   ToastController
 } from '@ionic/angular/standalone';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { addIcons } from 'ionicons';
-import { peopleOutline, cashOutline, documentTextOutline, barChartOutline, flashOutline } from 'ionicons/icons';
+import { peopleOutline, cashOutline, documentTextOutline, barChartOutline, flashOutline, notificationsOutline, mailUnreadOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -46,6 +52,12 @@ import { peopleOutline, cashOutline, documentTextOutline, barChartOutline, flash
     IonCardContent,
     IonButton,
     IonIcon,
+    IonBadge,
+    IonPopover,
+    IonList,
+    IonListHeader,
+    IonLabel,
+    IonItem,
     CommonModule,
     FormsModule,
     RouterModule,
@@ -64,6 +76,15 @@ export class DashboardPage implements OnInit {
     monthlyFunds: [500000, 600000, 750000, 800000, 900000, 1000000],
     months: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin']
   };
+
+  // Données des notifications
+  messages = [
+    { id: 1, title: 'Nouveau parrainage', content: 'Un nouvel enfant a été parrainé.', timestamp: new Date('2025-09-23T10:00:00'), read: false },
+    { id: 2, title: 'Paiement reçu', content: 'Paiement de 500,000 FCFA reçu.', timestamp: new Date('2025-09-22T15:30:00'), read: false },
+    { id: 3, title: 'Rapport envoyé', content: 'Le rapport mensuel a été envoyé aux parrains.', timestamp: new Date('2025-09-21T09:00:00'), read: true }
+  ];
+
+  unreadMessages: number = this.messages.filter(msg => !msg.read).length;
 
   // Configuration du graphique pour Enfants Parrainés (Bar)
   public barChartType: ChartType = 'bar';
@@ -151,7 +172,7 @@ export class DashboardPage implements OnInit {
   };
 
   constructor(private toastController: ToastController) {
-    addIcons({ peopleOutline, cashOutline, documentTextOutline, barChartOutline, flashOutline });
+    addIcons({ peopleOutline, cashOutline, documentTextOutline, barChartOutline, flashOutline, notificationsOutline, mailUnreadOutline });
   }
 
   ngOnInit() {
@@ -164,6 +185,10 @@ export class DashboardPage implements OnInit {
     //   this.barChartData.labels = data.months;
     //   this.lineChartData.labels = data.months;
     // });
+    // this.notificationService.getMessages().subscribe(messages => {
+    //   this.messages = messages;
+    //   this.unreadMessages = this.messages.filter(msg => !msg.read).length;
+    // });
   }
 
   async showToast(message: string) {
@@ -174,5 +199,12 @@ export class DashboardPage implements OnInit {
       position: 'bottom'
     });
     await toast.present();
+  }
+
+  markAsRead(message: any) {
+    if (!message.read) {
+      message.read = true;
+      this.unreadMessages = this.messages.filter(msg => !msg.read).length;
+    }
   }
 }
