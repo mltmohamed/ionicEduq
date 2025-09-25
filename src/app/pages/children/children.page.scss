@@ -157,6 +157,16 @@ ion-label strong {
   color: #555;
   line-height: 1.4;
 }
+.ion-padding{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+//   max-width: 600px; /* centré sur grand écran */
+  height: 80%;
+  margin: auto;
+}
 /* Animation */
 .animate__animated {
   --animate-duration: 0.6s;

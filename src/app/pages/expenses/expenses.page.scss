@@ -1,0 +1,42 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+//   max-width: 600px; /* centré sur grand écran */
+  height: 80%;
+  margin: auto;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+  color: var(--ion-color-primary);
+}
+
+.add-btn {
+  font-weight: bold;
+  --border-radius: 25px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--ion-color-success);
+}

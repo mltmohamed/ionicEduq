@@ -16,7 +16,9 @@ import {
   IonSelectOption, 
   IonInput, 
   IonCheckbox, 
-  IonButton 
+  IonButton, 
+  IonFooter, 
+  IonText 
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -25,6 +27,8 @@ import {
   styleUrls: ['./expenses-add.page.scss'],
   standalone: true,
   imports: [
+    IonText,
+    IonFooter,
     IonContent, 
     IonHeader, 
     IonTitle, 
@@ -46,9 +50,43 @@ import {
 })
 export class ExpensesAddPage implements OnInit {
 
-  constructor() { }
+  // ✅ Propriétés utilisées dans le HTML
+  expense: any = {
+    child: '',
+    description: '',
+    amount: null,
+    notify: false,
+    justificatif: null
+  };
 
-  ngOnInit() {
+  fileName: string | null = null;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  // ✅ Méthode pour enregistrer la dépense
+  saveExpense() {
+    console.log('Nouvelle dépense enregistrée :', this.expense);
+    alert('✅ Dépense enregistrée avec succès !');
+    // 👉 Ici tu peux appeler un service pour sauvegarder dans une API / base
   }
 
+  // ✅ Méthode pour choisir un fichier
+  pickFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*,application/pdf';
+
+    input.onchange = (event: any) => {
+      const file = event.target.files[0];
+      if (file) {
+        this.fileName = file.name;
+        this.expense.justificatif = file;
+        console.log('📂 Fichier choisi :', file);
+      }
+    };
+
+    input.click();
+  }
 }

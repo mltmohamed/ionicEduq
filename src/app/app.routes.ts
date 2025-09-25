@@ -11,5 +11,6 @@ export const routes: Routes = [
   { path: 'expenses/add', loadComponent: () => import('./pages/expenses-add/expenses-add.page').then(m => m.ExpensesAddPage) },
   { path: 'settings', loadComponent: () => import('./pages/settings/settings.page').then(m => m.SettingsPage) },
   { path: 'statistics', loadComponent: () => import('./pages/statistics/statistics.page').then(m => m.StatisticsPage) },
+  { path: 'reports', loadComponent: () => import('./pages/reports/reports.page').then(m => m.ReportsPage) },
   { path: '**', redirectTo: 'dashboard' } // Route par défaut pour gérer les erreurs 404
 ];

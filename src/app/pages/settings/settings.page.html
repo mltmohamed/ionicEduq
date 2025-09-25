@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <h1 class="page-title animate__animated animate__fadeInUp">Paramètres de l'Association</h1>
 
   <!-- Section Coordonnées -->
@@ -33,7 +34,7 @@
           <ion-label position="floating">Téléphone</ion-label>
           <ion-input formControlName="phone" type="tel"></ion-input>
         </ion-item>
-        <ion-button expand="block" color="primary" (click)="saveAssociation()" [disabled]="!associationForm.valid">
+        <ion-button expand="block" (click)="saveAssociation()" [disabled]="!associationForm.valid">
           Sauvegarder les Coordonnées
         </ion-button>
       </form>
@@ -59,7 +60,7 @@
           <ion-label position="floating">Confirmer le Nouveau Mot de Passe</ion-label>
           <ion-input formControlName="confirmPassword" type="password"></ion-input>
         </ion-item>
-        <ion-button expand="block" color="secondary" (click)="changePassword()" [disabled]="!passwordForm.valid">
+        <ion-button expand="block" (click)="changePassword()" [disabled]="!passwordForm.valid">
           Changer le Mot de Passe
         </ion-button>
         <ion-text *ngIf="passwordForm.invalid && passwordForm.touched" color="danger" class="error-message">
@@ -68,4 +69,5 @@
       </form>
     </ion-card-content>
   </ion-card>
+
 </ion-content>

@@ -1,0 +1,57 @@
+.page-title {
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; // ou center si tu veux centrer verticalement
+  min-height: 100vh;       // prend toute la hauteur de l’écran
+  background: #f8f9fa;     // petit fond clair
+}
+
+.payment-card {
+  width: 100%;          // occupe toute la largeur dispo
+  max-width: 600px;     // largeur max sur grand écran (style tablette/PC)
+  min-height: 125vh;     // hauteur minimale de la carte
+  margin: 0 auto;       // centre la carte
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background: #fff;
+}
+
+
+.form-item {
+  margin-top: 12px;
+  --highlight-color-focused: #3880ff; // couleur accent Ion
+}
+
+.divider {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.file-button {
+  margin-top: 8px;
+  border-radius: 12px;
+  --border-color: #3880ff;
+}
+
+.file-text {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.submit-button {
+  margin: 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 4px 14px rgba(56, 128, 255, 0.4);
+}

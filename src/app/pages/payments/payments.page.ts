@@ -14,15 +14,14 @@ import {
   IonCardContent, 
   IonList, 
   IonItem, 
-  IonLabel 
-} from '@ionic/angular/standalone';
+  IonLabel, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.page.html',
   styleUrls: ['./payments.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonCardSubtitle, IonCardTitle, IonCardHeader, 
     IonContent, 
     IonHeader, 
     IonTitle, 

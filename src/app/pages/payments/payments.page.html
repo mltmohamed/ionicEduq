@@ -7,28 +7,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1 class="page-title animate__animated animate__fadeInUp">Gestion des Paiements</h1>
+<ion-content class="ion-padding page-container">
 
-  <!-- Add Payment Button -->
-  <ion-button color="primary" routerLink="/payments/add">Enregistrer un Paiement</ion-button>
+  <!-- Titre animé -->
+  <h1 class="page-title animate__animated animate__fadeInUp">
+    💳 Gestion des Paiements
+  </h1>
 
-  <!-- Payments List -->
-  <ion-card class="card">
+  <!-- Bouton Ajouter -->
+  <ion-button expand="block" shape="round" class="add-btn ion-margin-vertical" routerLink="/payments/add">
+    + Enregistrer un Paiement
+  </ion-button>
+
+  <!-- Liste des paiements -->
+  <ion-card class="card animate__animated animate__fadeInUp" *ngFor="let payment of payments">
+    <ion-card-header>
+      <ion-card-title>{{ payment.childName }}</ion-card-title>
+      <ion-card-subtitle>
+        {{ payment.type }} | {{ payment.date }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let payment of payments" class="animate__animated animate__fadeIn">
-          <ion-label>
-            <h2>{{ payment.childName }}</h2>
-            <p>Montant: {{ payment.amount }} FCFA</p>
-            <p>Date: {{ payment.date }}</p>
-            <p>Type: {{ payment.type }}</p>
-          </ion-label>
-          <ion-buttons slot="end">
-            <ion-button color="primary" (click)="viewJustification(payment.id)">Voir Justificatif</ion-button>
-          </ion-buttons>
-        </ion-item>
-      </ion-list>
+      <p><strong>Montant :</strong> <span class="amount">{{ payment.amount }} FCFA</span></p>
     </ion-card-content>
+
+    <ion-item lines="none">
+      <ion-buttons slot="end">
+        <ion-button color="tertiary" fill="outline" shape="round" (click)="viewJustification(payment.id)">
+          Voir Justificatif
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
   </ion-card>
+
 </ion-content>

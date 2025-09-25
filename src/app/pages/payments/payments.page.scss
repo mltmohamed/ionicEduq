@@ -1,0 +1,35 @@
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+}
+
+.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin-bottom: 16px;
+  background: #ffffff;
+}
+
+.amount {
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.ion-padding{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+//   max-width: 600px; /* centré sur grand écran */
+  height: 80%;
+  margin: auto;
+}

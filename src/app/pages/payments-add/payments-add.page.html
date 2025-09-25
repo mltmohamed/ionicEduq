@@ -7,36 +7,111 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1 class="page-title animate__animated animate__fadeInUp">Nouveau Paiement</h1>
-  <ion-card class="card">
+<ion-content class="ion-padding" fullscreen>
+  <h1 class="page-title animate__animated animate__fadeInUp">
+    ✨ Nouveau Paiement
+  </h1>
+
+  <ion-card class="animate__animated animate__fadeInUp payment-card">
     <ion-card-content>
-      <form>
-        <ion-item>
-          <ion-label position="floating">Enfant</ion-label>
-          <ion-select placeholder="Sélectionner un enfant">
+      <form id="paymentForm" #paymentForm="ngForm" (ngSubmit)="savePayment()" class="payment-form">
+
+        <!-- Enfant concerné -->
+        <ion-item class="form-item">
+          <ion-label position="stacked">👦 Enfant concerné</ion-label>
+          <ion-select name="child" [(ngModel)]="payment.child" placeholder="Choisir un enfant" required>
             <ion-select-option value="child1">Enfant 1</ion-select-option>
             <ion-select-option value="child2">Enfant 2</ion-select-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating">Montant (FCFA)</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Type</ion-label>
-          <ion-select placeholder="Sélectionner">
+
+        <!-- Besoin -->
+        <ion-item class="form-item">
+          <ion-label position="stacked">📌 Besoin de l’enfant</ion-label>
+          <ion-select name="need" [(ngModel)]="payment.need" placeholder="Choisir un besoin" required>
             <ion-select-option value="scolarite">Scolarité</ion-select-option>
             <ion-select-option value="cantine">Cantine</ion-select-option>
             <ion-select-option value="uniforme">Uniforme</ion-select-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-label>Justificatif</ion-label>
-          <input type="file" accept="image/*,application/pdf">
+
+        <!-- Montant -->
+        <ion-item class="form-item">
+          <ion-label position="floating">💰 Montant (FCFA)</ion-label>
+          <ion-input type="number" name="amount" [(ngModel)]="payment.amount" required></ion-input>
         </ion-item>
-        <ion-button expand="block" color="primary">Enregistrer</ion-button>
+
+        <!-- Date -->
+        <ion-item class="form-item">
+          <ion-label position="stacked">📅 Date du paiement</ion-label>
+          <ion-datetime-button datetime="paymentDate"></ion-datetime-button>
+        </ion-item>
+
+        <!-- Moyen -->
+        <ion-item class="form-item">
+          <ion-label position="stacked">💳 Moyen de paiement</ion-label>
+          <ion-select name="method" [(ngModel)]="payment.method" placeholder="Sélectionner" required>
+            <ion-select-option value="especes">Espèces</ion-select-option>
+            <ion-select-option value="mobile">Paiement mobile</ion-select-option>
+            <ion-select-option value="carte">Carte bancaire</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Dépense -->
+        <ion-item-divider class="divider">
+          <ion-label>🧾 Dépense financée</ion-label>
+        </ion-item-divider>
+
+        <ion-item class="form-item">
+          <ion-label position="stacked">📆 Date de la dépense</ion-label>
+          <ion-datetime-button datetime="expenseDate"></ion-datetime-button>
+        </ion-item>
+
+        <!-- Justificatif -->
+        <ion-item class="form-item">
+          <ion-label position="stacked">📂 Justificatif</ion-label>
+          <ion-button expand="block" fill="outline" class="file-button" (click)="pickFile()">
+            Choisir un fichier
+          </ion-button>
+          <ion-text *ngIf="fileName" color="primary" class="file-text">
+            {{ fileName }}
+          </ion-text>
+        </ion-item>
+
+        <!-- Bouton sticky -->
+        <div class="submit-container">
+          <ion-button expand="block" type="submit" [disabled]="!paymentForm?.valid" class="submit-button">
+             Enregistrer
+          </ion-button>
+        </div>
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Modals -->
+  <ion-modal #paymentDateModal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime
+        id="paymentDate"
+        name="date"
+        [(ngModel)]="payment.date"
+        presentation="date"
+        locale="fr-FR"
+        [max]="today"
+      ></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal #expenseDateModal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime
+        id="expenseDate"
+        name="expenseDate"
+        [(ngModel)]="payment.expense.date"
+        presentation="date"
+        locale="fr-FR"
+        [max]="today"
+      ></ion-datetime>
+    </ng-template>
+  </ion-modal>
 </ion-content>
