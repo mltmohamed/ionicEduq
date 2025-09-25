@@ -19,7 +19,7 @@ ion-searchbar {
 ion-select {
   --border-radius: 10px;
   --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
+  margin-top: 8px;
   transition: box-shadow 0.3s ease;
   &:hover {
     --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -67,83 +67,96 @@ ion-item {
     }
   }
 }
-
-/* Styles spécifiques pour le modal */
+.custum-btn{
+  --background: linear-gradient(45deg, #3880ff, #4bc0c8); /* Dégradé */
+  --color: #fff; /* Texte blanc */
+  --border-radius: 10px; /* Arrondi */
+  --box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Ombre */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+}
 ion-modal {
-  --width: 90%;
-  --height: 90%;
-  --border-radius: 10px;
-  
-  /* Assurer que le modal occupe l'espace correct */
-  .modal-wrapper {
-    height: 100%;
-    width: 100%;
-  }
+  --width: 60%;               /* Largeur du modal */
+  --height: 85%;              /* Hauteur */
+  --border-radius: 20px;      /* Coins arrondis */
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  --background: #ffffff;      /* Fond clair */
+  --backdrop-opacity: 0.4;    /* Fond gris transparent derrière le modal */
 }
-
-/* Contenu du modal avec scroll */
 ion-modal ion-content {
-  --overflow: auto;
-  --background: #f8f9fa;
-  
-  /* Forcer le scroll vertical */
   overflow-y: auto;
-  height: 100%;
-  
-  .detail-card {
-    text-align: center;
-    margin: 0;
-    height: auto;
-    min-height: fit-content;
-
-    .detail-avatar {
-      margin: 0 auto 20px;
-      width: 100px;
-      height: 100px;
-    }
-
-    h2 {
-      color: #0288D1;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    ion-list {
-      margin-top: 20px;
-      background: transparent;
-    }
-
-    ion-item {
-      --padding-start: 0;
-      --inner-padding-end: 0;
-      --background: transparent;
-      text-align: left;
-      margin-bottom: 8px;
-    }
-
-    ion-label {
-      white-space: normal;
-      color: #333;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .story-label {
-      flex-direction: column;
-      align-items: flex-start;
-      
-      p {
-        margin-top: 10px;
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.4;
-        white-space: pre-line;
-        word-wrap: break-word;
-      }
-    }
-  }
+  scroll-behavior: smooth;
 }
 
+.tlb{
+  --background: var(--ion-color-primary);
+  --color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.tl{
+  font-size: 1.2rem;
+  font-weight: 600;
+
+}
+ion-button {
+  --color: #fff; /* Bouton "Fermer" blanc */
+}
+
+/* --- Carte de détails --- */
+.detail-card {
+  --background: #f9fafc;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* --- Avatar enfant --- */
+.detail-avatar {
+  display: block;
+  margin: 20px auto;
+  width: 120px;
+  height: 120px;
+  border: 4px solid var(--ion-color-primary);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.detail-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Texte du nom --- */
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 10px 0 20px;
+  color: var(--ion-color-primary);
+}
+
+/* --- Liste d'infos --- */
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  --background: transparent;
+  font-size: 0.95rem;
+}
+
+ion-label strong {
+  color: #222;
+}
+
+/* --- Petite histoire --- */
+.story-label p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
 /* Animation */
 .animate__animated {
   --animate-duration: 0.6s;
@@ -170,4 +183,5 @@ ion-modal ion-content {
       }
     }
   }
+ 
 }

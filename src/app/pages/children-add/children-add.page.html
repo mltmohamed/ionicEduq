@@ -7,33 +7,102 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" scroll-y="true">
   <h1 class="page-title animate__animated animate__fadeInUp">Ajouter un Nouvel Enfant</h1>
+
   <ion-card class="card">
     <ion-card-content>
       <form>
+        <!-- Nom -->
         <ion-item>
-          <ion-label position="floating">Nom Complet</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input type="text" name="lastName" required></ion-input>
         </ion-item>
+
+        <!-- Prénom -->
+        <ion-item>
+          <ion-label position="floating">Prénom</ion-label>
+          <ion-input type="text" name="firstName" required></ion-input>
+        </ion-item>
+
+        <!-- Âge -->
+        <ion-item>
+          <ion-label position="floating">Âge</ion-label>
+          <ion-input type="number" name="age" min="0" required></ion-input>
+        </ion-item>
+
+        <!-- Niveau Scolaire -->
         <ion-item>
           <ion-label position="floating">Niveau Scolaire</ion-label>
-          <ion-select placeholder="Sélectionner">
+          <ion-select placeholder="Sélectionner" name="grade" required>
             <ion-select-option value="primaire">Primaire</ion-select-option>
             <ion-select-option value="collège">Collège</ion-select-option>
             <ion-select-option value="lycée">Lycée</ion-select-option>
           </ion-select>
         </ion-item>
+
+        <!-- École -->
+        <ion-item>
+          <ion-label position="floating">Établissement Scolaire</ion-label>
+          <ion-input type="text" name="school" required></ion-input>
+        </ion-item>
+
+        <!-- Numéro École -->
+        <ion-item>
+          <ion-label position="floating">Numéro École</ion-label>
+          <ion-input type="tel" name="schoolPhone"></ion-input>
+        </ion-item>
+
+        <!-- Email École -->
+        <ion-item>
+          <ion-label position="floating">Email École</ion-label>
+          <ion-input type="email" name="schoolEmail"></ion-input>
+        </ion-item>
+
+        <!-- Nom du Titulaire -->
+        <ion-item>
+          <ion-label position="floating">Nom du Titulaire</ion-label>
+          <ion-input type="text" name="guardianName" required></ion-input>
+        </ion-item>
+
+        <!-- Numéro du Titulaire -->
+        <ion-item>
+          <ion-label position="floating">Numéro du Titulaire</ion-label>
+          <ion-input type="tel" name="guardianPhone" required></ion-input>
+        </ion-item>
+
+        <!-- Email du Titulaire -->
+        <ion-item>
+          <ion-label position="floating">Email du Titulaire</ion-label>
+          <ion-input type="email" name="guardianEmail"></ion-input>
+        </ion-item>
+
+        <!-- Photo de Profil -->
+        <ion-item>
+          <ion-label>Photo de Profil</ion-label>
+          <input type="file" accept="image/*" name="photo">
+        </ion-item>
+
+        <!-- Petite Histoire -->
+        <ion-item>
+          <ion-label position="floating">Petite Histoire</ion-label>
+          <ion-textarea name="story"></ion-textarea>
+        </ion-item>
+
+        <!-- Besoins spécifiques -->
         <ion-item>
           <ion-label position="floating">Besoins Spécifiques</ion-label>
-          <ion-textarea></ion-textarea>
+          <ion-textarea name="needs"></ion-textarea>
         </ion-item>
-        <ion-item>
-          <ion-label>Photo</ion-label>
-          <input type="file" accept="image/*">
-        </ion-item>
-        <ion-button expand="block" color="primary">Ajouter</ion-button>
+
+        <!-- Bouton de confirmation -->
+        <ion-button expand="block"  type="submit" class="io">
+          Confirmer l'Ajout
+        </ion-button>
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Ajout d'un espace supplémentaire pour éviter que le bouton ne soit collé en bas -->
+  <div style="height: 20px;"></div>
 </ion-content>

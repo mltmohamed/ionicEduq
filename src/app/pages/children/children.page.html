@@ -6,7 +6,6 @@
     <ion-title>Gestion des Enfants</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content class="ion-padding">
   <h1 class="page-title animate__animated animate__fadeInUp">
     Gestion des Enfants Enregistrés
@@ -37,9 +36,8 @@
 
   <!-- Add Child Button -->
   <ion-button
-    color="primary"
     routerLink="/children/add"
-    class="animate__animated animate__bounceIn">
+    class="custum-btn">
     Ajouter un Enfant
   </ion-button>
 
@@ -76,11 +74,11 @@
               (click)="toggleStatus(child.id, child.status); $event.stopPropagation()">
               {{ child.status === 'active' ? 'Désactiver' : 'Activer' }}
             </ion-button>
-            <ion-button
+            <!-- <ion-button
               color="secondary"
               (click)="markAttendance(child.id); $event.stopPropagation()">
               Présence
-            </ion-button>
+            </ion-button> -->
           </ion-buttons>
         </ion-item>
 
@@ -92,14 +90,13 @@
   </ion-card>
 <ion-modal [isOpen]="isChildDetailOpen" (didDismiss)="onChildDetailDismiss()" swipeToClose="true" presentingElement="ion-app">
   <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Détails de l'Enfant</ion-title>
+    <ion-toolbar class ="tlb" color="primary">
+      <ion-title class="tl">Détails de l'Enfant</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="onChildDetailDismiss()">Fermer</ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
   <ion-content class="ion-padding" fullscreen>
     <ion-card *ngIf="selectedChild" class="detail-card">
       <ion-card-content>
@@ -109,7 +106,6 @@
                onerror="this.src='assets/images/child-placeholder.jpg'">
         </ion-avatar>
         <h2 class="ion-text-center">{{ selectedChild.firstName }} {{ selectedChild.lastName }}</h2>
-
         <ion-list lines="full">
           <ion-item><ion-label>Prénom: <strong>{{ selectedChild.firstName }}</strong></ion-label></ion-item>
           <ion-item><ion-label>Nom: <strong>{{ selectedChild.lastName }}</strong></ion-label></ion-item>
@@ -135,5 +131,3 @@
     </ion-card>
   </ion-content>
 </ion-modal>
-
-</ion-content>

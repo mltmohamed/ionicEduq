@@ -63,12 +63,12 @@ ion-button {
 
   &[color="primary"] {
     --background: #0288D1; /* Bleu clair */
-    --color: white;
+    --color: rgb(58, 17, 17);
   }
 
   &[color="secondary"] {
     --background: #2ECC71; /* Vert vif */
-    --color: white;
+    --color: rgb(90, 20, 20);
   }
 
   &[color="tertiary"] {

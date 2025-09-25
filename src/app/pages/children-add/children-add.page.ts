@@ -16,15 +16,14 @@ import {
   IonSelect, 
   IonSelectOption, 
   IonTextarea, 
-  IonButton 
-} from '@ionic/angular/standalone';
+  IonButton, IonFooter } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-children-add',
   templateUrl: './children-add.page.html',
   styleUrls: ['./children-add.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonFooter, 
     IonContent, 
     IonHeader, 
     IonTitle, 
