@@ -72,9 +72,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  navigateTo(path: string) {
-    console.log('Navigating programmatically to:', path);
-    this.router.navigate([path]);
+navigateTo(path: string) {
+    this.router.navigate([path]);  // navigation Angular
   }
 
   logout() {

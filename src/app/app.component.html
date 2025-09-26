@@ -9,41 +9,47 @@
       </ion-header>
       <ion-list>
         <ion-menu-toggle auto-hide="false">
-          <ion-item button (click)="navigateTo('/dashboard')" lines="none">
+          <ion-item routerLink="/dashboard" routerDirection="root" lines="none">
             <ion-icon name="home-outline" slot="start"></ion-icon>
             <ion-label>Accueil</ion-label>
           </ion-item>
         </ion-menu-toggle>
+        
         <ion-menu-toggle auto-hide="false">
-          <ion-item button (click)="navigateTo('/children')" lines="none">
+          <ion-item routerLink="/children" routerDirection="root" lines="none">
             <ion-icon name="people-outline" slot="start"></ion-icon>
             <ion-label>Gestion des Enfants</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
         <ion-menu-toggle auto-hide="false">
-          <ion-item button (click)="navigateTo('/payments')" lines="none">
+          <ion-item routerLink="/payments" routerDirection="root" lines="none">
             <ion-icon name="cash-outline" slot="start"></ion-icon>
             <ion-label>Paiements</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
         <ion-menu-toggle auto-hide="false">
-          <ion-item button (click)="navigateTo('/expenses')" lines="none">
+          <ion-item routerLink="/expenses" routerDirection="root" lines="none">
             <ion-icon name="wallet-outline" slot="start"></ion-icon>
             <ion-label>Dépenses</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
         <ion-menu-toggle auto-hide="false">
-          <ion-item button (click)="navigateTo('/reports')" lines="none">
-           <ion-icon name="folder-open-outline" slot="start"></ion-icon>
+          <ion-item routerLink="/reports" routerDirection="root" lines="none">
+            <ion-icon name="folder-open-outline" slot="start"></ion-icon>
             <ion-label>Rapport</ion-label>
           </ion-item>
         </ion-menu-toggle>
-         <ion-menu-toggle auto-hide="false">
-          <ion-item button (click)="navigateTo('/settings')" lines="none">
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/settings" routerDirection="root" lines="none">
             <ion-icon name="settings-outline" slot="start"></ion-icon>
             <ion-label>Paramètres</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
         <!-- Bouton de déconnexion avec icône, en bas -->
         <ion-item button (click)="logout()" class="logout-item">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
