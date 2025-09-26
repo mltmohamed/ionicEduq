@@ -9,7 +9,16 @@
 ion-content {
   --padding-bottom: 20px; /* Padding pour éviter le débordement */
   --overflow: auto; /* Activer le défilement */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 88%;
+  padding: 1rem;
 }
+
 
 ion-card {
   border-radius: 15px;
@@ -122,6 +131,11 @@ ion-popover {
   --background: #F5F9FF; /* Fond blanc cassé */
   --box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+}
+.notif {
+  width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 ion-list-header {

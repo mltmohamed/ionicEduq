@@ -78,11 +78,14 @@ ion-item {
 }
 ion-modal {
   --width: 60%;               /* Largeur du modal */
-  --height: 85%;              /* Hauteur */
+  --height: 80%;              /* Hauteur */
   --border-radius: 20px;      /* Coins arrondis */
   --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   --background: #ffffff;      /* Fond clair */
-  --backdrop-opacity: 0.4;    /* Fond gris transparent derrière le modal */
+  --backdrop-opacity: 0.4;  
+    --padding-bottom: 20px; /* Padding pour éviter le débordement */
+  --overflow: auto; /* Activer le défilement */
+ /* Fond gris transparent derrière le modal */
 }
 ion-modal ion-content {
   overflow-y: auto;
@@ -170,6 +173,9 @@ ion-label strong {
 /* Animation */
 .animate__animated {
   --animate-duration: 0.6s;
+}
+.ion-padding{
+  height: 88%;
 }
 
 /* Responsive design pour mobiles */

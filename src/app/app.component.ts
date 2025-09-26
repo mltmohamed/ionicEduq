@@ -17,7 +17,16 @@ import {
   IonLabel 
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline, logOutOutline } from 'ionicons/icons';
+import { 
+  homeOutline, 
+  peopleOutline, 
+  cashOutline, 
+  walletOutline, 
+  settingsOutline, 
+  logOutOutline,
+  folderOpenOutline,   // ← ajoute ça
+  statsChartOutline   
+  } from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -51,7 +60,7 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(private router: Router) {
-    addIcons({ homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline, logOutOutline });
+    addIcons({ homeOutline, peopleOutline, cashOutline, walletOutline, settingsOutline, logOutOutline, folderOpenOutline,statsChartOutline });
   }
 
   ngOnInit() {

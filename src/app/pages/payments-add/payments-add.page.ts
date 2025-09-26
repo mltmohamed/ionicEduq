@@ -67,6 +67,7 @@ export class PaymentsAddPage implements OnInit {
     date: new Date().toISOString(),
     method: '',
     expense: {
+      type: '',
       date: new Date().toISOString(),
       justification: null as IFile | File | null
     }

@@ -7,25 +7,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1 class="page-title animate__animated animate__fadeInUp">Gestion des Rapports</h1>
+<ion-content class="ion-padding page-container">
+  <h1 class="page-title animate__animated animate__fadeInUp">
+    📊 Gestion des Rapports
+  </h1>
 
   <!-- Generate Report Button -->
-  <ion-button routerLink="/reports/generate">Générer un Rapport</ion-button>
+  <ion-button expand="block" shape="round" class="add-btn" routerLink="/reports/generate">
+    + Générer un Rapport
+  </ion-button>
 
   <!-- Reports List -->
-  <ion-card class="card">
+  <ion-card class="card animate__animated animate__fadeInUp">
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let report of reports" class="animate__animated animate__fadeIn">
+        <ion-item *ngFor="let report of reports" class="report-item animate__animated animate__fadeIn">
           <ion-label>
-            <h2>Rapport {{ report.type }} - {{ report.childName }}</h2>
-            <p>Date: {{ report.date }}</p>
-            <p>Statut: {{ report.status }}</p>
+            <h2>{{ report.type }} - {{ report.childName }}</h2>
+            <p><strong>Date :</strong> {{ report.date }}</p>
+            <p><strong>Statut :</strong> {{ report.status }}</p>
           </ion-label>
           <ion-buttons slot="end">
-            <ion-button color="primary" (click)="viewReport(report.id)">Voir</ion-button>
-            <ion-button color="secondary" (click)="sendReport(report.id)">Envoyer</ion-button>
+            <ion-button color="primary" fill="outline" shape="round" (click)="viewReport(report.id)">
+              Voir
+            </ion-button>
+            <ion-button color="secondary" fill="solid" shape="round" (click)="sendReport(report.id)">
+              Envoyer
+            </ion-button>
           </ion-buttons>
         </ion-item>
       </ion-list>

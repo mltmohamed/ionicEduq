@@ -18,7 +18,7 @@
 
         <!-- Enfant concerné -->
         <ion-item class="form-item">
-          <ion-label position="stacked">👦 Enfant concerné</ion-label>
+          <ion-label position="stacked"> Enfant concerné</ion-label>
           <ion-select name="child" [(ngModel)]="payment.child" placeholder="Choisir un enfant" required>
             <ion-select-option value="child1">Enfant 1</ion-select-option>
             <ion-select-option value="child2">Enfant 2</ion-select-option>
@@ -27,7 +27,7 @@
 
         <!-- Besoin -->
         <ion-item class="form-item">
-          <ion-label position="stacked">📌 Besoin de l’enfant</ion-label>
+          <ion-label position="stacked">Besoin de l’enfant</ion-label>
           <ion-select name="need" [(ngModel)]="payment.need" placeholder="Choisir un besoin" required>
             <ion-select-option value="scolarite">Scolarité</ion-select-option>
             <ion-select-option value="cantine">Cantine</ion-select-option>
@@ -37,35 +37,48 @@
 
         <!-- Montant -->
         <ion-item class="form-item">
-          <ion-label position="floating">💰 Montant (FCFA)</ion-label>
+          <ion-label position="floating"> Montant (FCFA)</ion-label>
           <ion-input type="number" name="amount" [(ngModel)]="payment.amount" required></ion-input>
         </ion-item>
 
         <!-- Date -->
         <ion-item class="form-item">
-          <ion-label position="stacked">📅 Date du paiement</ion-label>
+          <ion-label position="stacked">Date du paiement</ion-label>
           <ion-datetime-button datetime="paymentDate"></ion-datetime-button>
         </ion-item>
 
         <!-- Moyen -->
         <ion-item class="form-item">
-          <ion-label position="stacked">💳 Moyen de paiement</ion-label>
+          <ion-label position="stacked">Moyen de paiement</ion-label>
           <ion-select name="method" [(ngModel)]="payment.method" placeholder="Sélectionner" required>
-            <ion-select-option value="especes">Espèces</ion-select-option>
-            <ion-select-option value="mobile">Paiement mobile</ion-select-option>
-            <ion-select-option value="carte">Carte bancaire</ion-select-option>
+            <ion-select-option value="especes">Orange Money</ion-select-option>
+            <ion-select-option value="mobile">Carte Bancaire</ion-select-option>
+            <ion-select-option value="carte">Paypal</ion-select-option>
           </ion-select>
         </ion-item>
 
         <!-- Dépense -->
         <ion-item-divider class="divider">
-          <ion-label>🧾 Dépense financée</ion-label>
+          <ion-label>Dépense financée</ion-label>
         </ion-item-divider>
 
-        <ion-item class="form-item">
-          <ion-label position="stacked">📆 Date de la dépense</ion-label>
-          <ion-datetime-button datetime="expenseDate"></ion-datetime-button>
-        </ion-item>
+       <ion-item class="form-item">
+          <ion-label position="stacked">Type de dépense</ion-label>
+          <ion-select name="expenseType" [(ngModel)]="payment.expense.type" placeholder="Choisir une dépense" required>
+            <ion-select-option value="loyer">Loyer</ion-select-option>
+            <ion-select-option value="transport">Transport</ion-select-option>
+            <ion-select-option value="scolarite">Scolarité</ion-select-option>
+            <ion-select-option value="cantine">Cantine</ion-select-option>
+            <ion-select-option value="uniforme">Uniforme</ion-select-option>
+            <ion-select-option value="materiel">Matériel scolaire</ion-select-option>
+            <ion-select-option value="autre">Autre</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <!-- Date de la dépense -->
+      <ion-item class="form-item">
+        <ion-label position="stacked">Date de la dépense</ion-label>
+        <ion-datetime-button datetime="expenseDate"></ion-datetime-button>
+      </ion-item>
 
         <!-- Justificatif -->
         <ion-item class="form-item">
