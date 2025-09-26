@@ -33,3 +33,151 @@
   height: 80%;
   margin: auto;
 }
+.add-btn{
+  width: 400px;
+  margin: 20px;
+}
+.enf{
+  margin-top: 7px;
+}
+
+//coté notifications
+
+ ion-card-header {
+    ion-card-title {
+      color: var(--ion-primary-color, #0288D1);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    ion-icon {
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 1.5rem;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // &:hover ion-icon {
+  //   transform: scale(1.2);
+  // }
+
+  ion-card-content {
+    h2 {
+      color: var(--ion-primary-color, #0288D1);
+      font-size: 2.2rem;
+      margin: 0;
+      font-weight: bold;
+    }
+    p {
+      color: #333;
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+  }
+
+
+ion-button {
+  --border-radius: 10px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 15px;
+  height: 48px;
+
+  &:hover {
+    transform: scale(1.05);
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &[color="primary"] {
+    --background: #0288D1;
+    --color: #000000;
+  }
+
+  &[color="secondary"] {
+    --background: #2ECC71;
+    --color: #000000;
+  }
+
+  &[color="tertiary"] {
+    --background: #FFC107;
+    --color: #000000;
+  }
+}
+
+ion-badge {
+  --background: #FF0000; /* Rouge vif pour le badge */
+  --color: #FFFFFF;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+}
+
+ion-button#notifications-trigger {
+  position: relative;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  ion-icon {
+    font-size: 1.8rem;
+    color: #83763e; /* Blanc pour contraste sur fond primary */
+  }
+}
+
+ion-popover {
+  --width: 300px;
+  --background: #F5F9FF; /* Fond blanc cassé */
+  --box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.notif {
+  width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+ion-list-header {
+  --background: #0288D1;
+  --color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+ion-item {
+  --background: #FFFFFF;
+  --border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    --background: rgba(2, 136, 209, 0.1); /* Bleu clair léger au survol */
+  }
+
+  ion-label {
+    h3 {
+      color: #0288D1;
+      font-weight: 600;
+    }
+    p {
+      color: #333;
+    }
+    .timestamp {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  }
+  ion-icon {
+    color: #FF0000; /* Rouge pour messages non lus */
+  }
+}
+
+.animate__animated {
+  --animate-duration: 0.6s;
+}

@@ -14,13 +14,36 @@
     🧾 Gestion des Dépenses
   </h1>
 
+  <!-- Filtres -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-searchbar
+          placeholder="Rechercher un enfant"
+          (ionInput)="searchChildren($event)"
+          class="animate__animated animate__fadeIn">
+        </ion-searchbar>
+      </ion-col>
+      <ion-col size="12" size-md="6" class="col">
+        <ion-select
+          placeholder="Filtrer par statut"
+          (ionChange)="filterChildren($event)"
+          class="animate__animated animate__fadeIn">
+          <ion-select-option value="all">Tous</ion-select-option>
+          <ion-select-option value="sponsored">Parrainés</ion-select-option>
+          <ion-select-option value="non-sponsored">Non Parrainés</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <!-- Bouton Ajouter -->
   <ion-button expand="block" shape="round" class="add-btn ion-margin-vertical" routerLink="/expenses/add">
     + Ajouter une Dépense
   </ion-button>
 
   <!-- Liste des Dépenses -->
-  <ion-card class="card animate__animated animate__fadeInUp" *ngFor="let expense of expenses">
+  <ion-card class="card animate__animated animate__fadeInUp" *ngFor="let expense of filteredExpenses">
     <ion-card-header>
       <ion-card-title>{{ expense.description }}</ion-card-title>
       <ion-card-subtitle>
