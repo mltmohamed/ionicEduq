@@ -1,0 +1,98 @@
+ion-card{
+    margin: 10px;
+    box-shadow: none;
+}
+
+ion-icon{
+    color: black;
+    font-size: 24px;
+}
+
+
+
+
+ion-card-content{
+    text-align: center;
+}
+
+ion-card-content span{
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+ion-card-title{
+    margin-left: 1%;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+ion-grid p{
+    margin-left: 1%;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: start;
+}
+
+.stat-card{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: black;
+}
+
+.table-container{
+    margin: auto;
+    width: 93%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.text-table{
+    color: black;
+    width: 100%;
+}
+
+.text-table-wrapper{
+    margin-left: 3%;
+}
+
+.table-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,td{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th{
+    background-color: #f4f4f4;
+}
+
+ion-button{
+    margin: 0 5px;
+    --border-radius: 15px;
+}
+
+.btn-valide{
+    --color: white;
+    --background: #31A231;
+}
+
+.btn-reject{
+    --color: white;
+    --background: #E74C3C;
+}
+
+.btn-see{
+    --color: white;
+    --background: #0284C7;
+}

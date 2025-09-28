@@ -1,0 +1,30 @@
+      <ion-col size="3" class="menu-col">
+        <ion-title>Parrino espace Admin</ion-title>
+        <ion-list>
+          <ion-item [routerLink]="['/dashboard-admin']"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <img src="assets/icon/home.png" alt="" class="menu-icon">
+            Accueil
+          </ion-item>
+          <ion-item [routerLink]="['/gestion-association']"
+            routerLinkActive="active-link"
+          >
+            <img src="assets/icon/ass-icon.png" alt="" class="menu-icon">
+            Gestion association
+          </ion-item>
+          <ion-item [routerLink]="['/liste-enfants']"
+            routerLinkActive="active-link"
+          >
+            <img src="assets/icon/people-icon.png" alt="" class="menu-icon">
+            Liste des enfants
+          </ion-item> 
+          <ion-item [routerLink]="['/parametres']"
+            routerLinkActive="active-link"
+          >
+            <img src="assets/icon/setting-icon.png" alt="" class="menu-icon">
+            Paramètres
+          </ion-item>
+        </ion-list>
+      </ion-col>

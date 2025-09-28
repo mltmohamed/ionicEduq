@@ -1,0 +1,23 @@
+ion-item{
+    --ion-item-border-color: transparent;
+}
+
+ion-item[aria-current="page"]{
+    --background: #E8EDF2;
+    border-radius: 15px;
+}
+
+ion-item.active-link {
+  --background: #E8EDF2;       
+  border-radius: 15px;    
+}
+
+ion-item:hover{
+    --background: #E8EDF2;
+    border-radius: 15px;
+}
+.menu-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
