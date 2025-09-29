@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'admin/dashboard-admin', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'dashboard', loadComponent: () => import('./pages/dashboard/dashboard.page').then(m => m.DashboardPage) },
   { path: 'children', loadComponent: () => import('./pages/children/children.page').then(m => m.ChildrenPage) },
   { path: 'children/add', loadComponent: () => import('./pages/children-add/children-add.page').then(m => m.ChildrenAddPage) },
@@ -37,7 +37,36 @@ export const routes: Routes = [
       },
     ]
   },
+  
+  //pages visiteurs
+  {
+    path: '',
+    loadComponent: () =>
+      import('./landing-zone/visitor-layout-page/visitor-layout-page.page')
+      .then(m => m.VisitorLayoutPagePage),
+    children: [
+      { path: '', redirectTo: 'landing', pathMatch: 'full' },
+      {
+        path: 'landing',
+        loadComponent: () => import('./landing-zone/landing/landing.page').then(m => m.LandingPage)
+      },
+      {
+        path: 'apropos',
+        loadComponent: () => import('./landing-zone/apropos/apropos.page').then(m => m.AproposPage)
+      },
+      {
+        path: 'contact',
+        loadComponent: () => import('./landing-zone/contact/contact.page').then(m => m.ContactPage)
+      },
+      {
+        path: 'login',
+        loadComponent: () => import('./landing-zone/login/login.page').then( m => m.LoginPage)
+      },
+    ]
+  },
 
-{ path: '**', redirectTo: 'admin/dashboard-admin' },
+  { path: '**', redirectTo: 'landing' },
+  
+
 // Route par défaut pour gérer les erreurs 404
 ];

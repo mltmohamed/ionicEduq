@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-img src="assets/logo.png" alt="Parrino Logo" class="logo"></ion-img>
+      <ion-title>Parrino</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Connexion</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Mot de passe</ion-label>
+            <ion-input type="password" [(ngModel)]="password" required></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit" [disabled]="!isFormValid()">Se connecter</ion-button>
+          <ion-text>
+            <p class="forgot-password" (click)="goToForgotPassword()">Mot de passe oublié ?</p>
+          </ion-text>
+          <p class="signup-text">Pas de compte ? <a (click)="goToRegister()">S'inscrire</a></p>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-img src="assets/logo/logo-parrino.png" alt="Parrino Logo" class="logo"></ion-img>
+      <ion-title>Parrino</ion-title>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/landing"
+      routerLinkActive="active-link"
+      class="header-btn"
+      >Accueil</ion-button>
+      <ion-button routerLink="/apropos"
+      routerLinkActive="active-link"
+      class="header-btn"
+      >À propos</ion-button>
+      <ion-button routerLink="/contact"
+      routerLinkActive="active-link"
+      class="header-btn"
+      >Contact</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Section Héroïque avec image en arrière-plan -->
+  <div class="hero-section">
+    <h1>Soutenir l’éducation, un enfant à la fois</h1>
+    <p>Digitaliser le parrainage scolaire et les paiements</p>
+    <div class="hero-buttons">
+      <ion-button (click)="goToLogin()" class="same-size">Se connecter</ion-button>
+      <ion-button (click)="goToRegister()" class="same-size custom-btn">S'inscrire</ion-button>
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <div class="footer">
+    <p>© 2025 Parrino. Tous droits réservés.</p>
+  </div>
+</ion-content>

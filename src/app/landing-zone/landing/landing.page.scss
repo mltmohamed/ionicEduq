@@ -1,0 +1,107 @@
+ion-header {
+  --background: #007bff; /* Bleu de l'en-tête */
+  --color: white;
+}
+
+ion-header, ion-toolbar {
+  --box-shadow: none;   /* enlève l’ombre */
+  box-shadow: none;     /* sécurité supplémentaire */
+}
+
+.header-btn {
+  --background: transparent;   /* par défaut */
+  --color: #000;
+  transition: all 0.3s ease;
+}
+
+/* effet au survol */
+.header-btn:hover {
+  --background: #0284C7;
+  --color: #fff;
+  border-radius: 15px;
+}
+
+/* état actif quand la route est en cours */
+ion-button.header-btn.active-link {
+  --background: #0284C7;
+  --color: #fff;
+  --border-radius: 15px; 
+}
+
+
+.logo {
+  width: 15%; /* Ajuste selon ton logo */
+  height: auto;
+  margin-left: 5%;
+}
+
+ion-button {
+  --background: #007bff; /* Bleu pour les boutons */
+  --color: black;       /* Texte en noir */
+  --border-radius: 10px; /* Coins arrondis */
+  margin: 10px; /* Espacement autour des boutons */
+  --padding-start: 15px;
+  --padding-end: 15px;
+}
+
+.same-size{
+    width: 160px; /* même largeur pour les deux boutons */
+    text-align: center;
+}
+
+.custom-btn {
+  --background: white; /* Vert pour le bouton S'inscrire */
+}
+
+.same-size2{
+    background: white;
+}
+
+.hero-section {
+  text-align: center;
+  opacity: 1;
+  padding: 100px 20px; /* Plus d'espace pour l'image */
+  background: url('/assets/images/landing-img.png') no-repeat center center/cover; /* Image en arrière-plan */
+  color: white; /* Texte blanc pour contraste */
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
+  border-radius: 15px;
+  height: 40%; /* Hauteur ajustée pour le grand conteneur */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 2.5rem; /* Grande taille pour le titre principal */
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 1rem; /* Taille pour le texte secondaire */
+    margin-bottom: 40px;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center; /* centre les boutons */
+  gap: 12px;               /* espace entre les boutons */
+  flex-wrap: wrap;         /* permet de passer à la ligne sur petits écrans */
+}
+
+.hero-buttons ion-button {
+  flex: 1;                 /* prend le même espace */
+  min-width: 140px;        /* taille minimale pour éviter que ça devienne trop petit */
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  p {
+    color: #666;
+    margin: 0;
+  }
+}
