@@ -1,0 +1,85 @@
+ion-card{
+    margin: 10px;
+    box-shadow: none;
+}
+
+ion-card-title{
+    margin-left: 1%;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+ion-input {
+  --padding-start: 10px;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+ion-item{
+    --ion-item-border-color: transparent;
+}
+
+.search-bar {
+  margin: auto;
+  width:93%;
+  margin-bottom: 2%;
+  border-radius: 8px;
+  --background: #E8EDF2; /* Fond clair pour la recherche */
+}
+
+.input-with-icon{
+    border: none;
+    background: #E8EDF2;
+}
+
+.table-container{
+    margin: auto;
+    width: 93%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.text-table{
+    margin-left: 1%;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: start;
+}
+
+.text-table-wrapper{
+    margin-left: 3%;
+}
+
+.table-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,td{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th{
+    background-color: #f4f4f4;
+}
+
+ion-badge {
+  --border-radius: 15px; /* Coins arrondis pour matcher Figma */
+  padding: 5%;
+  border-radius: 8px;
+  background: #E8EDF2;
+  width: 55%;
+}
+
+.custom-badge{
+    color: black;
+}
+

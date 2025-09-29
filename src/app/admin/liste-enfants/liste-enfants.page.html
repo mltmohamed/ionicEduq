@@ -1,13 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>liste-enfants</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Enfants</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Contenu vide pour l'instant -->
+    </ion-card-content>
+  </ion-card>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">liste-enfants</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Table des enfants avec la barre de recherche -->
+  <div class="table-wrapper">
+    <div class="text-table-wrapper">
+      <p class="text-table">Liste des enfants</p>
+    </div>
+    <ion-item class="search-bar">
+      <img src="assets/icon/search-icon.png" alt="search" class="img-inside" />
+      <ion-input placeholder="Search students" [(ngModel)]="searchTerm" class="input-with-icon"></ion-input>
+    </ion-item>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Âge</th>
+            <th>Niveau scolaire</th>
+            <th>Nom de l'école</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody class="scrollable-body">
+          @for (child of filteredChildren; track child.name) {
+            <tr>
+              <td>{{ child.name }}</td>
+              <td>{{ child.age }}</td>
+              <td>{{ child.grade }}</td>
+              <td>{{ child.school }}</td>
+              <td>
+                <ion-badge class="custom-badge">
+                  {{ child.status === 'sponsored' ? 'Parrainé' : 'Non parrainé' }}
+                </ion-badge>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
 </ion-content>
