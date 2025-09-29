@@ -1,0 +1,9 @@
+ion-grid {
+  padding: 0;
+  margin: 0;
+}
+
+ion-row {
+  margin: 0;
+  --ion-grid-column-padding: 0; // supprime l’espace entre les colonnes si nécessaire
+}

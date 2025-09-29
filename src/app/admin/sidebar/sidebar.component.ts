@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import {IonicModule} from '@ionic/angular';
 
 @Component({
@@ -11,7 +11,23 @@ import {IonicModule} from '@ionic/angular';
 })
 export class SidebarComponent  implements OnInit {
 
-  constructor() { }
+  activePath : string='';
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event =>{
+      if(event instanceof NavigationEnd){
+        this.activePath = event.urlAfterRedirects;
+      }
+    })
+   }
+  
+  goTo(path: string) {
+    this.router.navigate([path]);
+  }
+
+  isActive(path: string) {
+    return this.activePath === path;
+  }
 
   ngOnInit() {}
 

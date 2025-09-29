@@ -8,7 +8,16 @@ ion-icon{
     font-size: 24px;
 }
 
+.admin-wrapper {
+  display: flex;
+  height: 100vh; // occupe tout l'écran
+}
 
+
+.main-content {
+  flex: 1;
+  padding: 16px;
+}
 
 
 ion-card-content{

@@ -20,6 +20,7 @@ export class DashboardAdminPage implements OnInit {
     {name: 'Association aide', date:'2023-09-19'},
     {name: 'Aide supreme', date:'2023-10-05'},
     {name: 'Aide enfants', date:'2023-07-13'},
+    
   ];
 
   viewDocument(school: any){

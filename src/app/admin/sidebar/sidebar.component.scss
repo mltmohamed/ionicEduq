@@ -7,17 +7,35 @@ ion-item[aria-current="page"]{
     border-radius: 15px;
 }
 
-ion-item.active-link {
-  --background: #E8EDF2;       
-  border-radius: 15px;    
+.active-link {
+  --background: #0284C7; /* couleur quand actif */
+  border-radius: 15px;
+  color: #fff;
+
+  img {
+    filter: brightness(0) invert(1); /* icône en blanc quand actif */
+  }
 }
 
 ion-item:hover{
-    --background: #E8EDF2;
+    --background: #0284C7;
     border-radius: 15px;
 }
+
+ion-list {
+  --ion-background-color: #E8EDF2; // s’assure que Ionic prend la couleur
+}
+
 .menu-icon{
     width: 24px;
     height: 24px;
     margin-right: 10px;
+}
+
+:host {
+  display: block;
+  height: 100vh;      // prend toute la hauteur de la fenêtre
+  background-color: #E8EDF2;  // ta couleur de sidebar uniforme
+  padding: 16px;      // optionnel, pour l'espacement interne
+  box-sizing: border-box; // s'assure que padding n'affecte pas la largeur
 }

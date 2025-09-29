@@ -1,13 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>gestion-association</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">gestion-association</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Gestion Association</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Table des associations -->
+  <div class="table-wrapper">
+    <div class="text-table-wrapper">
+      <p class="text-table">Liste des associations</p>
+    </div>
+    <!-- Barre de recherche -->
+      <ion-item class="search-bar">
+        <img src="assets/icon/search-icon.png" alt="search" class="img-inside" />
+        <ion-input placeholder="Search students" [(ngModel)]="searchTerm" class="input-with-icon"></ion-input>
+      </ion-item>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom de l'école</th>
+            <th>Emplacement</th>
+            <th>Date d'enregistrement</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="scrollable-body">
+          @for (association of filteredAssociations; track association.name) {
+            <tr>
+              <td>{{ association.name }}</td>
+              <td>{{ association.location }}</td>
+              <td>{{ association.date }}</td>
+              <td>
+                @if (association.status === 'active') {
+                  <ion-button class="btn-active"  (click)="activateAssociation(association)">Activer</ion-button>
+                } @else {
+                  <ion-button class="btn-disable"  (click)="deactivateAssociation(association)">Désactiver</ion-button>
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
 </ion-content>
